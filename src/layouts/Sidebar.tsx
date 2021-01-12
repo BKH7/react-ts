@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from 'react-router-dom';
 
 interface Menu {
   title: string;
@@ -24,14 +25,13 @@ export function Sidebar() {
   ]
 
   const mainMenu = (m: MainMenu, i: number) => (
-    <a
-      href={m.path}
+    <Link to={{ pathname: m.path }}
       className="mb-2 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
       key={i}
     >
       <i className={`fad text-xs mr-2 fa-${m.icon}`} />
       {m.title}
-    </a>
+    </Link>
   );
 
   const subMenu = (m: MainMenu, i: number) => (
@@ -40,14 +40,13 @@ export function Sidebar() {
         {m.title}
       </p>
       {m.submenu.map((x: Menu, i2: number) => (
-        <a
+        <Link to={{ pathname: x.path}}
           className="mb-2 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           key={i2}
-          href={x.path}
         >
           <i className={`fad text-xs mr-2 fa-${x.icon}`} />
           {x.title}
-        </a>
+        </Link>
       ))}
     </Fragment>
   );
