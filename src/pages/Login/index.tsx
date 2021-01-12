@@ -1,9 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 export function Login() {
-    return (
-        <Fragment>
-            <h1>Login Page</h1>
-        </Fragment>
-    )
+    return <div className="bg-gray-100 flex-1 p-6 md:mt-16">Login Page</div>;
 }

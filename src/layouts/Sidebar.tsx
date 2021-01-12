@@ -1,6 +1,57 @@
-import React from "react";
+import React, { Fragment } from "react";
+
+interface Menu {
+  title: string;
+  path?: string;
+  icon?: string;
+}
+
+interface MainMenu extends Menu {
+  submenu: Menu[];
+}
 
 export function Sidebar() {
+  const menu: MainMenu[] = [
+    { title: "Dashboard", path: "/", icon: "chart-pie",  submenu: []},
+    { title: "user account", submenu: [
+      { path: "/user", title: "Users management", icon: "chart-pie"},
+      { path: "/permission", title: "Permission management", icon: "chart-pie"},
+    ]},
+    { title: "erp", submenu: [
+      { path: "/planner", title: "Planner", icon: "chart-pie"},
+      { path: "/import-machine", title: "Import Machine", icon: "chart-pie"},
+    ]},
+  ]
+
+  const mainMenu = (m: MainMenu, i: number) => (
+    <a
+      href={m.path}
+      className="mb-2 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+      key={i}
+    >
+      <i className={`fad text-xs mr-2 fa-${m.icon}`} />
+      {m.title}
+    </a>
+  );
+
+  const subMenu = (m: MainMenu, i: number) => (
+    <Fragment key={i}>
+      <p className="uppercase text-xs text-gray-600 mb-3 mt-3 tracking-wider">
+        {m.title}
+      </p>
+      {m.submenu.map((x: Menu, i2: number) => (
+        <a
+          className="mb-2 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+          key={i2}
+          href={x.path}
+        >
+          <i className={`fad text-xs mr-2 fa-${x.icon}`} />
+          {x.title}
+        </a>
+      ))}
+    </Fragment>
+  );
+
   return (
     <div
       id="sideBar"
@@ -12,165 +63,7 @@ export function Sidebar() {
             <i className="fad fa-times-circle" />
           </button>
         </div>
-
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Dashboard
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          user account
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Users management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Permission management
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          ERP
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Planned
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Import Plan
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          jobs
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Production management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Operator management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Shift management
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          assets
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Groups management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Machines management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Devices management
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          visualize
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Summary report
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          history
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          OEE
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          downtime
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Breakdoen management
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Key downtime
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Downtime timeline information
-        </a>
-
-        <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
-          settings
-        </p>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Company
-        </a>
-        <a
-          href="/"
-          className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
-        >
-          <i className="fad fa-chart-pie text-xs mr-2" />
-          Notifications
-        </a>
+        {menu.map((x: MainMenu, i: number) => (x.submenu.length > 0) ? subMenu(x, i) : mainMenu(x, i))}
       </div>
     </div>
   );

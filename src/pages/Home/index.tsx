@@ -1,9 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 export function Home() {
-  return (
-    <Fragment>
-      <h1>Home Page</h1>
-    </Fragment>
-  );
+  return <div className="bg-gray-100 flex-1 p-6 md:mt-16">Home page</div>;
 }

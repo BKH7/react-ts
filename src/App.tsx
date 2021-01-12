@@ -1,6 +1,8 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import { Header, Sidebar } from './layouts';
+import { Header, Sidebar } from "./layouts";
+import { Home, Login } from "./pages";
 
 export default function App() {
   return (
@@ -8,7 +10,10 @@ export default function App() {
       <Header />
       <div className="h-screen flex flex-row flex-wrap">
         <Sidebar />
-        <div className="bg-gray-100 flex-1 p-6 md:mt-16">content here</div>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/user" component={Login} />
+        </Switch>
       </div>
     </>
   );
