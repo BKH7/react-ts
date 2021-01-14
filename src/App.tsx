@@ -1,12 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Header, Sidebar } from "./layouts";
 import { Home, Login, NotFound, NotAuthorization } from "./pages";
 
 export default function App() {
   return (
-    <>
+    <Router>
       <Header />
       <div className="h-screen flex flex-row flex-wrap">
         <Sidebar />
@@ -17,6 +17,6 @@ export default function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
-    </>
+    </Router>
   );
 }
