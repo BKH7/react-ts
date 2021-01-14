@@ -10,6 +10,7 @@ export interface UserState {
 
 export enum UserActionType {
     FETCH_USER = "FETCH_USER",
+    ADD_USER = "ADD_USER",
 }
 
 export type UserAction = UserActionType;
