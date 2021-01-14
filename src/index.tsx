@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from '@/App';
+import reportWebVitals from '@/reportWebVitals';
 import './index.scss'
-import configureStore from './store/index';
+import configureStore from '@/store/index';
 
 const store = configureStore();
 

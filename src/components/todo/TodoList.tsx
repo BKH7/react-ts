@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTodoState } from "../../store/todo/selectors";
 import { checkTodo, deleteTodo } from "../../store/todo/actions";

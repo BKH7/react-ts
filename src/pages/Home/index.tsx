@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Todo } from "../../components";
+import { Todo } from "@/components";
 
 export function Home() {
   return (

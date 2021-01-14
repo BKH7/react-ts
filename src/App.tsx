@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Header, Sidebar } from "./layouts";
-import { Home, Login, NotFound, NotAuthorization } from "./pages";
+import { Header, Sidebar } from "@/layouts";
+import { Home, Login, NotFound, NotAuthorization } from "@/pages";
 
 export default function App() {
   return (
